@@ -1,272 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RAVI PAID PREDICTOR</title>
+  <meta charset="UTF-8">
+  <title>Package Expired</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #1c1c1c, #3a0d0d);
       margin: 0;
       padding: 0;
-      height: 100vh;
+      background-color: black;
+      color: red;
+      font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #ff4c4c;
+      height: 100vh;
+      text-align: center;
     }
-
-    .card {
-      backdrop-filter: blur(15px);
-      background: rgba(255, 0, 0, 0.1);
-      border: 1px solid rgba(255, 0, 0, 0.3);
-      border-radius: 20px;
-      padding: 30px 40px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-      transition: 0.3s;
+    .message-box {
+      border: 2px solid red;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px red;
+      max-width: 500px;
     }
-
-    .card:hover {
-      transform: translateY(-4px);
+    h1 {
+      margin-bottom: 20px;
+      font-size: 24px;
     }
-
-    h2, h3 {
-      color: #ff1a1a;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0 20px;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      background-color: #331010;
-      color: #ffb3b3;
-    }
-
-    button {
-      background-color: #990000;
-      color: white;
-      padding: 12px;
-      width: 100%;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background-color: #cc0000;
-    }
-
-    #main-content {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .info-box {
-      margin: 10px 0;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 10px 15px;
-      border-left: 5px solid #ff1a1a;
-      border-radius: 10px;
-      width: 100%;
-      text-align: left;
-      color: #ff8080;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    li {
-      background: rgba(255, 255, 255, 0.05);
-      margin: 5px 0;
-      padding: 8px 10px;
-      border-radius: 6px;
-      font-size: 14px;
-      color: #ffc2c2;
-    }
-
-    .prediction {
-      font-weight: bold;
+    p {
       font-size: 18px;
-      color: #ff4d4d;
     }
-
-    .owner-tag {
-      font-size: 12px;
-      text-align: center;
-      margin-top: 10px;
-      color: #ff6666;
-    }
-
-    .popup {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #330000;
-      color: #ffcccc;
-      padding: 15px 20px;
-      border: 2px solid #ff0000;
-      border-radius: 10px;
-      z-index: 999;
-      text-align: center;
-      max-width: 90%;
-      font-size: 12px;
-      box-shadow: 0 0 10px #ff0000;
+    .highlight {
+      color: white;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="card" id="login-box">
-    <h2>Login</h2>
-    <input type="password" id="password" placeholder="Enter Password" />
-    <button onclick="login()">Login</button>
-    <p id="error-message" style="color: red; margin-top: 10px;"></p>
-    <div class="owner-tag">MOD OWNER: @raviraj095 & @silentxkiller_76</div>
+  <div class="message-box">
+    <h1>Package Expired</h1>
+    <p>Your package has expired. The price of the new package is <span class="highlight">₹499</span>.</p>
+    <p>0% discount. Please don’t bargain.</p>
+    <p>Buy the new package only from: <span class="highlight">@RAVIRAJ095</span></p>
   </div>
-
-  <div class="card" id="main-content">
-    <h2>RAVI PAID PREDICTOR</h2>
-    <div class="info-box" id="time">Time: Loading...</div>
-    <div class="info-box" id="period-number">Period: Loading...</div>
-    <div class="info-box prediction" id="prediction-result">Prediction: Waiting...</div>
-    <div style="width: 100%; margin-top: 20px;">
-      <h3>Prediction History</h3>
-      <ul id="history-list"></ul>
-    </div>
-    <div class="owner-tag">MOD OWNER: @raviraj095 & @silentxkiller_76</div>
-  </div>
-
-  <script>
-    let storedPassword = "R&S";
-    function login() {
-      let inputPassword = document.getElementById("password").value;
-      if (inputPassword === storedPassword) {
-        document.getElementById("login-box").style.display = "none";
-        document.getElementById("main-content").style.display = "flex";
-        showPopup();
-        fetchCurrentGameIssue();
-        setInterval(fetchCurrentGameIssue, 60000);
-      } else {
-        document.getElementById("error-message").textContent = "Incorrect Password";
-      }
-    }
-
-    function showPopup() {
-      const popup = document.createElement('div');
-      popup.className = 'popup';
-      popup.innerHTML = `
-        only buy for owner & his frinds<br>
-        his owner:- @raviraj095 & @silentxkiller_76<br>
-        frinds:- aditya & prince only from this people other wise any problem don't gurrantee
-      `;
-      document.body.appendChild(popup);
-      setTimeout(() => popup.remove(), 6000); // Hide after 6 seconds
-    }
-
-    function updateTime() {
-      const now = new Date();
-      document.getElementById('time').textContent = `Time: ${now.toLocaleTimeString()}`;
-    }
-    setInterval(updateTime, 1000);
-    updateTime();
-
-    let history = [];
-    let latestPeriod = null;
-    let isLastPredictionWin = true;
-    let forcedWin = false;
-    let winStreakCount = 0;
-    let allowLoss = false;
-
-    async function fetchCurrentGameIssue() {
-      const apiUrl = 'https://api.bdg88zf.com/api/webapi/GetGameIssue';
-      const requestData = {
-        typeId: 1,
-        language: 0,
-        random: "40079dcba93a48769c6ee9d4d4fae23f",
-        signature: "D12108C4F57C549D82B23A91E0FA20AE",
-        timestamp: 1727792520,
-      };
-      try {
-        const response = await fetch(apiUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json;charset=UTF-8' },
-          body: JSON.stringify(requestData),
-        });
-        if (response.ok) {
-          const data = await response.json();
-          if (data.code === 0) {
-            const currentPeriod = data.data.issueNumber;
-            if (currentPeriod !== latestPeriod) {
-              latestPeriod = currentPeriod;
-              document.getElementById('period-number').textContent = `Period: ${latestPeriod}`;
-              generatePrediction();
-            }
-          }
-        }
-      } catch (error) {
-        console.error("❌ Fetch error:", error);
-      }
-    }
-
-    function generatePrediction() {
-      const predictionElement = document.getElementById('prediction-result');
-      const historyList = document.getElementById('history-list');
-
-      let predictionText = "";
-      let directNumber, oppositeNumber;
-
-      if (forcedWin) {
-        directNumber = Math.floor(Math.random() * 4) + 6;
-        oppositeNumber = Math.floor(Math.random() * 5);
-        predictionText = "BIG";
-        forcedWin = false;
-        winStreakCount = 1;
-        allowLoss = false;
-      } else if (allowLoss) {
-        directNumber = Math.floor(Math.random() * 4);
-        oppositeNumber = Math.floor(Math.random() * 5) + 5;
-        predictionText = "SMALL";
-        allowLoss = false;
-        forcedWin = true;
-        winStreakCount = 0;
-      } else {
-        directNumber = Math.floor(Math.random() * 10);
-        oppositeNumber = (directNumber < 5)
-          ? (Math.floor(Math.random() * 5) + 5)
-          : Math.floor(Math.random() * 5);
-
-        predictionText = (directNumber >= 5) ? "BIG" : "SMALL";
-      }
-
-      predictionElement.innerHTML = `Prediction: ${predictionText} | Numbers: ${directNumber}, ${oppositeNumber}`;
-
-      history.unshift(`Period ${latestPeriod}: ${predictionText} | ${directNumber}, ${oppositeNumber}`);
-      if (history.length > 10) history.pop();
-      historyList.innerHTML = history.map(item => `<li>${item}</li>`).join('');
-
-      isLastPredictionWin = (directNumber >= 5);
-      if (isLastPredictionWin) {
-        winStreakCount++;
-        if (winStreakCount >= 4 && winStreakCount <= 5) {
-          allowLoss = true;
-        }
-      } else {
-        forcedWin = true;
-        winStreakCount = 0;
-        allowLoss = false;
-      }
-    }
-  </script>
 </body>
 </html>
